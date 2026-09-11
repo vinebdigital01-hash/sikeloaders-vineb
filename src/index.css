@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-white text-dark-800 antialiased overflow-x-hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-dark-900;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fade-in-on-scroll animation */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid #DC2626;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
